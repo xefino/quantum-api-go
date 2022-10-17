@@ -12,7 +12,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -32,7 +31,7 @@ type IAMClient interface {
 	// Retrieves the client associated with the current user and the client ID
 	GetClient(ctx context.Context, in *GetClientRequest, opts ...grpc.CallOption) (*data.Client, error)
 	// Removes the client associated with the current user and client ID
-	DeleteClient(ctx context.Context, in *DeleteClientRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteClient(ctx context.Context, in *DeleteClientRequest, opts ...grpc.CallOption) (*data.Client, error)
 	// Creates a new user with the desired username and password
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*data.User, error)
 	// Retrieves the account information for the current user
@@ -101,8 +100,8 @@ func (c *iAMClient) GetClient(ctx context.Context, in *GetClientRequest, opts ..
 	return out, nil
 }
 
-func (c *iAMClient) DeleteClient(ctx context.Context, in *DeleteClientRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *iAMClient) DeleteClient(ctx context.Context, in *DeleteClientRequest, opts ...grpc.CallOption) (*data.Client, error) {
+	out := new(data.Client)
 	err := c.cc.Invoke(ctx, "/quantumapi.iam.v1.IAM/DeleteClient", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -158,7 +157,7 @@ type IAMServer interface {
 	// Retrieves the client associated with the current user and the client ID
 	GetClient(context.Context, *GetClientRequest) (*data.Client, error)
 	// Removes the client associated with the current user and client ID
-	DeleteClient(context.Context, *DeleteClientRequest) (*emptypb.Empty, error)
+	DeleteClient(context.Context, *DeleteClientRequest) (*data.Client, error)
 	// Creates a new user with the desired username and password
 	CreateUser(context.Context, *CreateUserRequest) (*data.User, error)
 	// Retrieves the account information for the current user
@@ -183,7 +182,7 @@ func (UnimplementedIAMServer) GetClients(*GetClientsRequest, IAM_GetClientsServe
 func (UnimplementedIAMServer) GetClient(context.Context, *GetClientRequest) (*data.Client, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetClient not implemented")
 }
-func (UnimplementedIAMServer) DeleteClient(context.Context, *DeleteClientRequest) (*emptypb.Empty, error) {
+func (UnimplementedIAMServer) DeleteClient(context.Context, *DeleteClientRequest) (*data.Client, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteClient not implemented")
 }
 func (UnimplementedIAMServer) CreateUser(context.Context, *CreateUserRequest) (*data.User, error) {
