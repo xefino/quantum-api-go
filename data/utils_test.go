@@ -3,8 +3,6 @@ package data
 import (
 	"testing"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
@@ -16,85 +14,60 @@ func TestData(t *testing.T) {
 	RunSpecs(t, "Data Suite")
 }
 
-var _ = Describe("DynamoDB.ClientType Marshal/Unmarshal Tests", func() {
+var _ = Describe("Data.ClientType Marshal/Unmarshal Tests", func() {
 
-	// Test that converting a DynamoDB.ClientType to a AttributeValue works for all values
-	DescribeTable("MarshalDynamoDBAttributeValue Tests",
-		func(enum ClientType, value string) {
-			data, err := enum.MarshalDynamoDBAttributeValue()
-			Expect(err).ShouldNot(HaveOccurred())
-			Expect(data.(*types.AttributeValueMemberS).Value).Should(Equal(value))
-		},
-		Entry("Web - Works", ClientType_Web, "Web"),
-		Entry("CLI - Works", ClientType_CLI, "CLI"),
-		Entry("Other - Works", ClientType_Other, "Other"))
+	// Test that attempting to deserialize a Data.ClientType will fail and
+	// return an error if the value canno be deserialized from a JSON value to a string
+	It("UnmarshalJSON fails - Error", func() {
 
-	// Tests that, if the UnmarshalDynamoDBAttributeValue function is called with an invalid AttributeValue
-	// type, then the function will return an error
-	It("UnmarshalDynamoDBAttributeValue - Type invalid - Error", func() {
-		var enum *ClientType
-		err := enum.UnmarshalDynamoDBAttributeValue(&types.AttributeValueMemberBOOL{Value: *aws.Bool(false)})
+		// Attempt to convert a non-parseable string value into a Data.ClientType
+		// This should return an error
+		enum := new(ClientType)
+		err := enum.UnmarshalJSON([]byte("derp"))
+
+		// Verify the error
 		Expect(err).Should(HaveOccurred())
-		Expect(err.Error()).Should(Equal("Attribute value of *types.AttributeValueMemberBOOL could not be converted to a dynamodb.ClientType"))
+		Expect(err.Error()).Should(Equal("value of \"derp\" cannot be mapped to a data.ClientType"))
 	})
 
-	// Tests that, if UnmarshalDynamoDBAttributeValue is called with a AttributeValueMemberNULL,
-	// then the dynamodb.ClientType will not be modified and instead will be returned as nil
-	It("UnmarshalDynamoDBAttributeValue - Value is NULL - Works", func() {
-		var enum *ClientType
-		err := enum.UnmarshalDynamoDBAttributeValue(&types.AttributeValueMemberNULL{})
-		Expect(err).ShouldNot(HaveOccurred())
-		Expect(enum).Should(BeNil())
+	// Test that attempting to deserialize a Data.ClientType will fail and
+	// return an error if the value cannot be converted to either the name value or integer
+	// value of the enum option
+	It("UnmarshalJSON - Value is invalid - Error", func() {
+
+		// Attempt to convert a fake string value into a Data.ClientType
+		// This should return an error
+		enum := new(ClientType)
+		err := enum.UnmarshalJSON([]byte("\"derp\""))
+
+		// Verify the error
+		Expect(err).Should(HaveOccurred())
+		Expect(err.Error()).Should(Equal("value of \"derp\" cannot be mapped to a data.ClientType"))
 	})
 
-	// Tests that the UnmarshalDynamoDBAttributeValue works with various AttributeValue types
-	DescribeTable("UnmarshalDynamoDBAttributeValue - Conditions",
-		func(attr types.AttributeValue, expected ClientType) {
-			enum := new(ClientType)
-			err := enum.UnmarshalDynamoDBAttributeValue(attr)
+	// Test the conditions under which values should be convertible to a Data.ClientType
+	DescribeTable("UnmarshalJSON Tests",
+		func(value string, shouldBe ClientType) {
+
+			// Attempt to convert the string value into a Data.ClientType
+			// This should not fail
+			var enum ClientType
+			err := enum.UnmarshalJSON([]byte(value))
+
+			// Verify that the deserialization was successful
 			Expect(err).ShouldNot(HaveOccurred())
-			Expect(*enum).Should(Equal(expected))
+			Expect(enum).Should(Equal(shouldBe))
 		},
-		Entry("Value is web, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("web")}, ClientType_Web),
-		Entry("Value is cli, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("cli")}, ClientType_CLI),
-		Entry("Value is other, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("other")}, ClientType_Other),
-		Entry("Value is 0, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("0")}, ClientType_Web),
-		Entry("Value is 1, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("1")}, ClientType_CLI),
-		Entry("Value is 2, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("2")}, ClientType_Other),
-		Entry("Value is Web, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("Web")}, ClientType_Web),
-		Entry("Value is CLI, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("CLI")}, ClientType_CLI),
-		Entry("Value is Other, []byte - Works",
-			&types.AttributeValueMemberB{Value: []byte("Other")}, ClientType_Other),
-		Entry("Value is 0, number - Works",
-			&types.AttributeValueMemberN{Value: "0"}, ClientType_Web),
-		Entry("Value is 1, number - Works",
-			&types.AttributeValueMemberN{Value: "1"}, ClientType_CLI),
-		Entry("Value is 2, number - Works",
-			&types.AttributeValueMemberN{Value: "2"}, ClientType_Other),
-		Entry("Value is web, string - Works",
-			&types.AttributeValueMemberS{Value: "web"}, ClientType_Web),
-		Entry("Value is cli, string - Works",
-			&types.AttributeValueMemberS{Value: "cli"}, ClientType_CLI),
-		Entry("Value is other, string - Works",
-			&types.AttributeValueMemberS{Value: "other"}, ClientType_Other),
-		Entry("Value is Web, string - Works",
-			&types.AttributeValueMemberS{Value: "Web"}, ClientType_Web),
-		Entry("Value is CLI, string - Works",
-			&types.AttributeValueMemberS{Value: "CLI"}, ClientType_CLI),
-		Entry("Value is Other, string - Works",
-			&types.AttributeValueMemberS{Value: "Other"}, ClientType_Other),
-		Entry("Value is 0, string - Works",
-			&types.AttributeValueMemberS{Value: "0"}, ClientType_Web),
-		Entry("Value is 1, string - Works",
-			&types.AttributeValueMemberS{Value: "1"}, ClientType_CLI),
-		Entry("Value is 2, string - Works",
-			&types.AttributeValueMemberS{Value: "2"}, ClientType_Other))
+		Entry("Empty string - Works", "\"\"", ClientType_Invalid),
+		Entry("web - Works", "\"web\"", ClientType_Web),
+		Entry("cli - Works", "\"cli\"", ClientType_CLI),
+		Entry("other - Works", "\"other\"", ClientType_Other),
+		Entry("Invalid - Works", "\"Invalid\"", ClientType_Invalid),
+		Entry("Web - Works", "\"Web\"", ClientType_Web),
+		Entry("CLI - Works", "\"CLI\"", ClientType_CLI),
+		Entry("Other - Works", "\"Other\"", ClientType_Other),
+		Entry("0 - Works", "\"0\"", ClientType_Invalid),
+		Entry("1 - Works", "\"1\"", ClientType_Web),
+		Entry("2 - Works", "\"2\"", ClientType_CLI),
+		Entry("3 - Works", "\"3\"", ClientType_Other))
 })
