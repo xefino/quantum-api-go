@@ -65,6 +65,7 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("day - Works", "\"day\"", Frequency_Day),
 		Entry("week - Works", "\"week\"", Frequency_Week),
 		Entry("month - Works", "\"month\"", Frequency_Month),
+		Entry("quarter - Works", "\"quarter\"", Frequency_Quarter),
 		Entry("year - Works", "\"year\"", Frequency_Year),
 		Entry("InvalidFrequency - Works", "\"InvalidFrequency\"", Frequency_InvalidFrequency),
 		Entry("Second - Works", "\"Second\"", Frequency_Second),
@@ -73,6 +74,7 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("Day - Works", "\"Day\"", Frequency_Day),
 		Entry("Week - Works", "\"Week\"", Frequency_Week),
 		Entry("Month - Works", "\"Month\"", Frequency_Month),
+		Entry("Quarter - Works", "\"Quarter\"", Frequency_Quarter),
 		Entry("Year - Works", "\"Year\"", Frequency_Year),
 		Entry("0 - Works", "\"0\"", Frequency_InvalidFrequency),
 		Entry("1 - Works", "\"1\"", Frequency_Second),
@@ -81,7 +83,8 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("4 - Works", "\"4\"", Frequency_Day),
 		Entry("5 - Works", "\"5\"", Frequency_Week),
 		Entry("6 - Works", "\"6\"", Frequency_Month),
-		Entry("7 - Works", "\"7\"", Frequency_Year))
+		Entry("7 - Works", "\"7\"", Frequency_Quarter),
+		Entry("8 - Works", "\"8\"", Frequency_Year))
 
 	// Test that attempting to deserialize a OHLC.v1.Frequency will fail and
 	// return an error if the value canno be deserialized from a param value to a string
@@ -132,6 +135,7 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("day - Works", "day", Frequency_Day),
 		Entry("week - Works", "week", Frequency_Week),
 		Entry("month - Works", "month", Frequency_Month),
+		Entry("quarter - Works", "quarter", Frequency_Quarter),
 		Entry("year - Works", "year", Frequency_Year),
 		Entry("InvalidFrequency - Works", "InvalidFrequency", Frequency_InvalidFrequency),
 		Entry("Second - Works", "Second", Frequency_Second),
@@ -140,6 +144,7 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("Day - Works", "Day", Frequency_Day),
 		Entry("Week - Works", "Week", Frequency_Week),
 		Entry("Month - Works", "Month", Frequency_Month),
+		Entry("Quarter - Works", "Quarter", Frequency_Quarter),
 		Entry("Year - Works", "Year", Frequency_Year),
 		Entry("0 - Works", "0", Frequency_InvalidFrequency),
 		Entry("1 - Works", "1", Frequency_Second),
@@ -148,5 +153,6 @@ var _ = Describe("OHLC.v1.Frequency Marshal/Unmarshal Tests", func() {
 		Entry("4 - Works", "4", Frequency_Day),
 		Entry("5 - Works", "5", Frequency_Week),
 		Entry("6 - Works", "6", Frequency_Month),
-		Entry("7 - Works", "7", Frequency_Year))
+		Entry("7 - Works", "7", Frequency_Quarter),
+		Entry("8 - Works", "8", Frequency_Year))
 })

@@ -4,14 +4,15 @@ import utils "github.com/xefino/quantum-api-go/utils"
 
 // FrequencyAlternates contains alternative values for the OHLC.v1.Frequency enum
 var FrequencyAlternates = map[string]Frequency{
-	"":       Frequency_InvalidFrequency,
-	"second": Frequency_Second,
-	"minute": Frequency_Minute,
-	"hour":   Frequency_Hour,
-	"day":    Frequency_Day,
-	"week":   Frequency_Week,
-	"month":  Frequency_Month,
-	"year":   Frequency_Year,
+	"":        Frequency_InvalidFrequency,
+	"second":  Frequency_Second,
+	"minute":  Frequency_Minute,
+	"hour":    Frequency_Hour,
+	"day":     Frequency_Day,
+	"week":    Frequency_Week,
+	"month":   Frequency_Month,
+	"quarter": Frequency_Quarter,
+	"year":    Frequency_Year,
 }
 
 // UnmarshalJSON converts JSON data into an OHLC.v1.Frequency
