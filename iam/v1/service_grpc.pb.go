@@ -23,22 +23,31 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type IAMClient interface {
-	// Creates a new client associated with the current user, returning
-	// the client's information along with its credentials
-	RegisterClient(ctx context.Context, in *RegisterClientRequest, opts ...grpc.CallOption) (*data.Client, error)
-	// Retrieves all clients registered with the current user
+	// Creates a new client associated with the current user, returning the client's information along with its credentials. This request is
+	// allowed only to only create clients which are either for a non-Xefino domain or else for a non-browser client. This restriction is
+	// intended as a security measure to prevent user clients from impersonating our official web client. Client credentials will be
+	// available from this endpoint when the client is created, and only at that time.
+	RegisterClient(ctx context.Context, in *RegisterClientRequest, opts ...grpc.CallOption) (*RegisterClientResponse, error)
+	// Retrieves information on all the clients that have been registered for the current user. Note that secrets will not be returned from
+	// this endpoint.
 	GetClients(ctx context.Context, in *GetClientsRequest, opts ...grpc.CallOption) (IAM_GetClientsClient, error)
-	// Retrieves the client associated with the current user and the client ID
+	// Retrieves the client associated with the current user and the client ID. Note that the secret associated with this client will not
+	// be returned from this endpoint. If there is no client associated with the user ID and client ID provided, then this endpoint will
+	// return a not-found response
 	GetClient(ctx context.Context, in *GetClientRequest, opts ...grpc.CallOption) (*data.Client, error)
-	// Removes the client associated with the current user and client ID
+	// Removes the client associated with the current user and client ID, returning the client's information. Note that the secret
+	// associated with this client will not be returned from this endpoint. If there is not client associated with the user ID and client ID
+	// provided, then this endpoint will return a not-found response
 	DeleteClient(ctx context.Context, in *DeleteClientRequest, opts ...grpc.CallOption) (*data.Client, error)
-	// Creates a new user with the desired username and password
+	// Creates a new user with the desired username and password. This request will fail if a user is created with the same email address as
+	// another user, or if the password is empty. Only our official client is allowed to access this endpoint.
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*data.User, error)
-	// Retrieves the account information for the current user
+	// Retrieves the account information for the current user. This function will not return any sensitive information associated with the user.
 	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*data.User, error)
-	// Updates the email address (username) associated with the current user
+	// Updates the email address (username) associated with the current user. This function will return the updated user information, but this will
+	// not include any sensitive information.
 	UpdateEmail(ctx context.Context, in *UpdateEmailRequest, opts ...grpc.CallOption) (*data.User, error)
-	// Updates the password associated with the current user
+	// Updates the password associated with the current user. This function will not return any sensitive information associated with the user.
 	UpdatePassword(ctx context.Context, in *UpdatePasswordRequest, opts ...grpc.CallOption) (*data.User, error)
 }
 
@@ -50,8 +59,8 @@ func NewIAMClient(cc grpc.ClientConnInterface) IAMClient {
 	return &iAMClient{cc}
 }
 
-func (c *iAMClient) RegisterClient(ctx context.Context, in *RegisterClientRequest, opts ...grpc.CallOption) (*data.Client, error) {
-	out := new(data.Client)
+func (c *iAMClient) RegisterClient(ctx context.Context, in *RegisterClientRequest, opts ...grpc.CallOption) (*RegisterClientResponse, error) {
+	out := new(RegisterClientResponse)
 	err := c.cc.Invoke(ctx, "/quantumapi.iam.v1.IAM/RegisterClient", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -149,22 +158,31 @@ func (c *iAMClient) UpdatePassword(ctx context.Context, in *UpdatePasswordReques
 // All implementations must embed UnimplementedIAMServer
 // for forward compatibility
 type IAMServer interface {
-	// Creates a new client associated with the current user, returning
-	// the client's information along with its credentials
-	RegisterClient(context.Context, *RegisterClientRequest) (*data.Client, error)
-	// Retrieves all clients registered with the current user
+	// Creates a new client associated with the current user, returning the client's information along with its credentials. This request is
+	// allowed only to only create clients which are either for a non-Xefino domain or else for a non-browser client. This restriction is
+	// intended as a security measure to prevent user clients from impersonating our official web client. Client credentials will be
+	// available from this endpoint when the client is created, and only at that time.
+	RegisterClient(context.Context, *RegisterClientRequest) (*RegisterClientResponse, error)
+	// Retrieves information on all the clients that have been registered for the current user. Note that secrets will not be returned from
+	// this endpoint.
 	GetClients(*GetClientsRequest, IAM_GetClientsServer) error
-	// Retrieves the client associated with the current user and the client ID
+	// Retrieves the client associated with the current user and the client ID. Note that the secret associated with this client will not
+	// be returned from this endpoint. If there is no client associated with the user ID and client ID provided, then this endpoint will
+	// return a not-found response
 	GetClient(context.Context, *GetClientRequest) (*data.Client, error)
-	// Removes the client associated with the current user and client ID
+	// Removes the client associated with the current user and client ID, returning the client's information. Note that the secret
+	// associated with this client will not be returned from this endpoint. If there is not client associated with the user ID and client ID
+	// provided, then this endpoint will return a not-found response
 	DeleteClient(context.Context, *DeleteClientRequest) (*data.Client, error)
-	// Creates a new user with the desired username and password
+	// Creates a new user with the desired username and password. This request will fail if a user is created with the same email address as
+	// another user, or if the password is empty. Only our official client is allowed to access this endpoint.
 	CreateUser(context.Context, *CreateUserRequest) (*data.User, error)
-	// Retrieves the account information for the current user
+	// Retrieves the account information for the current user. This function will not return any sensitive information associated with the user.
 	GetUser(context.Context, *GetUserRequest) (*data.User, error)
-	// Updates the email address (username) associated with the current user
+	// Updates the email address (username) associated with the current user. This function will return the updated user information, but this will
+	// not include any sensitive information.
 	UpdateEmail(context.Context, *UpdateEmailRequest) (*data.User, error)
-	// Updates the password associated with the current user
+	// Updates the password associated with the current user. This function will not return any sensitive information associated with the user.
 	UpdatePassword(context.Context, *UpdatePasswordRequest) (*data.User, error)
 	mustEmbedUnimplementedIAMServer()
 }
@@ -173,7 +191,7 @@ type IAMServer interface {
 type UnimplementedIAMServer struct {
 }
 
-func (UnimplementedIAMServer) RegisterClient(context.Context, *RegisterClientRequest) (*data.Client, error) {
+func (UnimplementedIAMServer) RegisterClient(context.Context, *RegisterClientRequest) (*RegisterClientResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterClient not implemented")
 }
 func (UnimplementedIAMServer) GetClients(*GetClientsRequest, IAM_GetClientsServer) error {
