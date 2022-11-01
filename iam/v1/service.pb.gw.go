@@ -31,7 +31,7 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_IAM_RegisterClient_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_RegisterClient_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RegisterClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -48,7 +48,7 @@ func request_IAM_RegisterClient_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_IAM_RegisterClient_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_RegisterClient_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RegisterClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -65,7 +65,7 @@ func local_request_IAM_RegisterClient_0(ctx context.Context, marshaler runtime.M
 
 }
 
-func request_IAM_GetClients_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (IAM_GetClientsClient, runtime.ServerMetadata, error) {
+func request_IamService_GetClients_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (IamService_GetClientsClient, runtime.ServerMetadata, error) {
 	var protoReq GetClientsRequest
 	var metadata runtime.ServerMetadata
 
@@ -82,7 +82,7 @@ func request_IAM_GetClients_0(ctx context.Context, marshaler runtime.Marshaler, 
 
 }
 
-func request_IAM_GetClient_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_GetClient_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -108,7 +108,7 @@ func request_IAM_GetClient_0(ctx context.Context, marshaler runtime.Marshaler, c
 
 }
 
-func local_request_IAM_GetClient_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_GetClient_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -134,7 +134,7 @@ func local_request_IAM_GetClient_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func request_IAM_DeleteClient_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_DeleteClient_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -160,7 +160,7 @@ func request_IAM_DeleteClient_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_IAM_DeleteClient_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_DeleteClient_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteClientRequest
 	var metadata runtime.ServerMetadata
 
@@ -186,7 +186,7 @@ func local_request_IAM_DeleteClient_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_IAM_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -203,7 +203,7 @@ func request_IAM_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, 
 
 }
 
-func local_request_IAM_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_CreateUser_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -220,7 +220,7 @@ func local_request_IAM_CreateUser_0(ctx context.Context, marshaler runtime.Marsh
 
 }
 
-func request_IAM_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -229,7 +229,7 @@ func request_IAM_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, cli
 
 }
 
-func local_request_IAM_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_GetUser_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetUserRequest
 	var metadata runtime.ServerMetadata
 
@@ -238,7 +238,7 @@ func local_request_IAM_GetUser_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func request_IAM_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateEmailRequest
 	var metadata runtime.ServerMetadata
 
@@ -255,7 +255,7 @@ func request_IAM_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler,
 
 }
 
-func local_request_IAM_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_UpdateEmail_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateEmailRequest
 	var metadata runtime.ServerMetadata
 
@@ -272,7 +272,7 @@ func local_request_IAM_UpdateEmail_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_IAM_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, client IAMClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_IamService_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, client IamServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdatePasswordRequest
 	var metadata runtime.ServerMetadata
 
@@ -289,7 +289,7 @@ func request_IAM_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func local_request_IAM_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, server IAMServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_IamService_UpdatePassword_0(ctx context.Context, marshaler runtime.Marshaler, server IamServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdatePasswordRequest
 	var metadata runtime.ServerMetadata
 
@@ -306,13 +306,13 @@ func local_request_IAM_UpdatePassword_0(ctx context.Context, marshaler runtime.M
 
 }
 
-// RegisterIAMHandlerServer registers the http handlers for service IAM to "mux".
-// UnaryRPC     :call IAMServer directly.
+// RegisterIamServiceHandlerServer registers the http handlers for service IamService to "mux".
+// UnaryRPC     :call IamServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterIAMHandlerFromEndpoint instead.
-func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server IAMServer) error {
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterIamServiceHandlerFromEndpoint instead.
+func RegisterIamServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server IamServiceServer) error {
 
-	mux.Handle("POST", pattern_IAM_RegisterClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_IamService_RegisterClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -320,12 +320,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/RegisterClient", runtime.WithHTTPPathPattern("/clients/register"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/RegisterClient", runtime.WithHTTPPathPattern("/clients/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_RegisterClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_RegisterClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -333,18 +333,18 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_RegisterClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_RegisterClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_IAM_GetClients_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetClients_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 		return
 	})
 
-	mux.Handle("GET", pattern_IAM_GetClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -352,12 +352,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/GetClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/GetClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_GetClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_GetClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -365,11 +365,11 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_GetClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_GetClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_IAM_DeleteClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_IamService_DeleteClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -377,12 +377,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/DeleteClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/DeleteClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_DeleteClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_DeleteClient_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -390,11 +390,11 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_DeleteClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_DeleteClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_IAM_CreateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_IamService_CreateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -402,12 +402,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/CreateUser", runtime.WithHTTPPathPattern("/user"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/CreateUser", runtime.WithHTTPPathPattern("/user"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_CreateUser_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_CreateUser_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -415,11 +415,11 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_CreateUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_CreateUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_IAM_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -427,12 +427,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/GetUser", runtime.WithHTTPPathPattern("/user"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/GetUser", runtime.WithHTTPPathPattern("/user"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_GetUser_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_GetUser_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -440,11 +440,11 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_GetUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_GetUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_IAM_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_IamService_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -452,12 +452,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/UpdateEmail", runtime.WithHTTPPathPattern("/user/update-email"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/UpdateEmail", runtime.WithHTTPPathPattern("/user/update-email"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_UpdateEmail_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_UpdateEmail_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -465,11 +465,11 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_UpdateEmail_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_UpdateEmail_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_IAM_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_IamService_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -477,12 +477,12 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/UpdatePassword", runtime.WithHTTPPathPattern("/user/update-password"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/protos.iam.v1.IamService/UpdatePassword", runtime.WithHTTPPathPattern("/user/update-password"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_IAM_UpdatePassword_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_IamService_UpdatePassword_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -490,16 +490,16 @@ func RegisterIAMHandlerServer(ctx context.Context, mux *runtime.ServeMux, server
 			return
 		}
 
-		forward_IAM_UpdatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_UpdatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterIAMHandlerFromEndpoint is same as RegisterIAMHandler but
+// RegisterIamServiceHandlerFromEndpoint is same as RegisterIamServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterIAMHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterIamServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -519,195 +519,195 @@ func RegisterIAMHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, 
 		}()
 	}()
 
-	return RegisterIAMHandler(ctx, mux, conn)
+	return RegisterIamServiceHandler(ctx, mux, conn)
 }
 
-// RegisterIAMHandler registers the http handlers for service IAM to "mux".
+// RegisterIamServiceHandler registers the http handlers for service IamService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterIAMHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterIAMHandlerClient(ctx, mux, NewIAMClient(conn))
+func RegisterIamServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterIamServiceHandlerClient(ctx, mux, NewIamServiceClient(conn))
 }
 
-// RegisterIAMHandlerClient registers the http handlers for service IAM
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "IAMClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "IAMClient"
+// RegisterIamServiceHandlerClient registers the http handlers for service IamService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "IamServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "IamServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "IAMClient" to call the correct interceptors.
-func RegisterIAMHandlerClient(ctx context.Context, mux *runtime.ServeMux, client IAMClient) error {
+// "IamServiceClient" to call the correct interceptors.
+func RegisterIamServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client IamServiceClient) error {
 
-	mux.Handle("POST", pattern_IAM_RegisterClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_IamService_RegisterClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/RegisterClient", runtime.WithHTTPPathPattern("/clients/register"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/RegisterClient", runtime.WithHTTPPathPattern("/clients/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_RegisterClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_RegisterClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_RegisterClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_RegisterClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_IAM_GetClients_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetClients_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/GetClients", runtime.WithHTTPPathPattern("/clients"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/GetClients", runtime.WithHTTPPathPattern("/clients"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_GetClients_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_GetClients_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_GetClients_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_IamService_GetClients_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_IAM_GetClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/GetClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/GetClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_GetClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_GetClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_GetClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_GetClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_IAM_DeleteClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_IamService_DeleteClient_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/DeleteClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/DeleteClient", runtime.WithHTTPPathPattern("/clients/{client_id}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_DeleteClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_DeleteClient_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_DeleteClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_DeleteClient_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_IAM_CreateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_IamService_CreateUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/CreateUser", runtime.WithHTTPPathPattern("/user"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/CreateUser", runtime.WithHTTPPathPattern("/user"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_CreateUser_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_CreateUser_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_CreateUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_CreateUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_IAM_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_IamService_GetUser_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/GetUser", runtime.WithHTTPPathPattern("/user"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/GetUser", runtime.WithHTTPPathPattern("/user"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_GetUser_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_GetUser_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_GetUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_GetUser_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_IAM_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_IamService_UpdateEmail_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/UpdateEmail", runtime.WithHTTPPathPattern("/user/update-email"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/UpdateEmail", runtime.WithHTTPPathPattern("/user/update-email"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_UpdateEmail_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_UpdateEmail_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_UpdateEmail_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_UpdateEmail_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PUT", pattern_IAM_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PUT", pattern_IamService_UpdatePassword_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.iam.v1.IAM/UpdatePassword", runtime.WithHTTPPathPattern("/user/update-password"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.iam.v1.IamService/UpdatePassword", runtime.WithHTTPPathPattern("/user/update-password"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_IAM_UpdatePassword_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_IamService_UpdatePassword_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_IAM_UpdatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_IamService_UpdatePassword_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -715,37 +715,37 @@ func RegisterIAMHandlerClient(ctx context.Context, mux *runtime.ServeMux, client
 }
 
 var (
-	pattern_IAM_RegisterClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"clients", "register"}, ""))
+	pattern_IamService_RegisterClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"clients", "register"}, ""))
 
-	pattern_IAM_GetClients_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"clients"}, ""))
+	pattern_IamService_GetClients_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"clients"}, ""))
 
-	pattern_IAM_GetClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"clients", "client_id"}, ""))
+	pattern_IamService_GetClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"clients", "client_id"}, ""))
 
-	pattern_IAM_DeleteClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"clients", "client_id"}, ""))
+	pattern_IamService_DeleteClient_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 1, 0, 4, 1, 5, 1}, []string{"clients", "client_id"}, ""))
 
-	pattern_IAM_CreateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
+	pattern_IamService_CreateUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
 
-	pattern_IAM_GetUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
+	pattern_IamService_GetUser_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"user"}, ""))
 
-	pattern_IAM_UpdateEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"user", "update-email"}, ""))
+	pattern_IamService_UpdateEmail_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"user", "update-email"}, ""))
 
-	pattern_IAM_UpdatePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"user", "update-password"}, ""))
+	pattern_IamService_UpdatePassword_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"user", "update-password"}, ""))
 )
 
 var (
-	forward_IAM_RegisterClient_0 = runtime.ForwardResponseMessage
+	forward_IamService_RegisterClient_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_GetClients_0 = runtime.ForwardResponseStream
+	forward_IamService_GetClients_0 = runtime.ForwardResponseStream
 
-	forward_IAM_GetClient_0 = runtime.ForwardResponseMessage
+	forward_IamService_GetClient_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_DeleteClient_0 = runtime.ForwardResponseMessage
+	forward_IamService_DeleteClient_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_CreateUser_0 = runtime.ForwardResponseMessage
+	forward_IamService_CreateUser_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_GetUser_0 = runtime.ForwardResponseMessage
+	forward_IamService_GetUser_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_UpdateEmail_0 = runtime.ForwardResponseMessage
+	forward_IamService_UpdateEmail_0 = runtime.ForwardResponseMessage
 
-	forward_IAM_UpdatePassword_0 = runtime.ForwardResponseMessage
+	forward_IamService_UpdatePassword_0 = runtime.ForwardResponseMessage
 )

@@ -31,7 +31,7 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_OHLC_Aggregates_0(ctx context.Context, marshaler runtime.Marshaler, client OHLCClient, req *http.Request, pathParams map[string]string) (OHLC_AggregatesClient, runtime.ServerMetadata, error) {
+func request_OhlcService_Aggregates_0(ctx context.Context, marshaler runtime.Marshaler, client OhlcServiceClient, req *http.Request, pathParams map[string]string) (OhlcService_AggregatesClient, runtime.ServerMetadata, error) {
 	var protoReq GetAggregatesRequest
 	var metadata runtime.ServerMetadata
 
@@ -96,13 +96,13 @@ func request_OHLC_Aggregates_0(ctx context.Context, marshaler runtime.Marshaler,
 
 }
 
-// RegisterOHLCHandlerServer registers the http handlers for service OHLC to "mux".
-// UnaryRPC     :call OHLCServer directly.
+// RegisterOhlcServiceHandlerServer registers the http handlers for service OhlcService to "mux".
+// UnaryRPC     :call OhlcServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterOHLCHandlerFromEndpoint instead.
-func RegisterOHLCHandlerServer(ctx context.Context, mux *runtime.ServeMux, server OHLCServer) error {
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterOhlcServiceHandlerFromEndpoint instead.
+func RegisterOhlcServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server OhlcServiceServer) error {
 
-	mux.Handle("POST", pattern_OHLC_Aggregates_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_OhlcService_Aggregates_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
 		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -112,9 +112,9 @@ func RegisterOHLCHandlerServer(ctx context.Context, mux *runtime.ServeMux, serve
 	return nil
 }
 
-// RegisterOHLCHandlerFromEndpoint is same as RegisterOHLCHandler but
+// RegisterOhlcServiceHandlerFromEndpoint is same as RegisterOhlcServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterOHLCHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterOhlcServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -134,41 +134,41 @@ func RegisterOHLCHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux,
 		}()
 	}()
 
-	return RegisterOHLCHandler(ctx, mux, conn)
+	return RegisterOhlcServiceHandler(ctx, mux, conn)
 }
 
-// RegisterOHLCHandler registers the http handlers for service OHLC to "mux".
+// RegisterOhlcServiceHandler registers the http handlers for service OhlcService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterOHLCHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterOHLCHandlerClient(ctx, mux, NewOHLCClient(conn))
+func RegisterOhlcServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterOhlcServiceHandlerClient(ctx, mux, NewOhlcServiceClient(conn))
 }
 
-// RegisterOHLCHandlerClient registers the http handlers for service OHLC
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "OHLCClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "OHLCClient"
+// RegisterOhlcServiceHandlerClient registers the http handlers for service OhlcService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "OhlcServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "OhlcServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "OHLCClient" to call the correct interceptors.
-func RegisterOHLCHandlerClient(ctx context.Context, mux *runtime.ServeMux, client OHLCClient) error {
+// "OhlcServiceClient" to call the correct interceptors.
+func RegisterOhlcServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client OhlcServiceClient) error {
 
-	mux.Handle("POST", pattern_OHLC_Aggregates_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_OhlcService_Aggregates_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/quantumapi.ohlc.v1.OHLC/Aggregates", runtime.WithHTTPPathPattern("/ohlc/aggregate/{symbol}/range/{multiplier}/{frequency}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/protos.ohlc.v1.OhlcService/Aggregates", runtime.WithHTTPPathPattern("/ohlc/aggregate/{symbol}/range/{multiplier}/{frequency}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_OHLC_Aggregates_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_OhlcService_Aggregates_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_OHLC_Aggregates_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
+		forward_OhlcService_Aggregates_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -176,9 +176,9 @@ func RegisterOHLCHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 }
 
 var (
-	pattern_OHLC_Aggregates_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 1, 0, 4, 1, 5, 5}, []string{"ohlc", "aggregate", "symbol", "range", "multiplier", "frequency"}, ""))
+	pattern_OhlcService_Aggregates_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 1, 0, 4, 1, 5, 5}, []string{"ohlc", "aggregate", "symbol", "range", "multiplier", "frequency"}, ""))
 )
 
 var (
-	forward_OHLC_Aggregates_0 = runtime.ForwardResponseStream
+	forward_OhlcService_Aggregates_0 = runtime.ForwardResponseStream
 )
