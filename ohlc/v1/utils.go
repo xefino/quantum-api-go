@@ -1,6 +1,6 @@
 package v1
 
-import utils "github.com/xefino/quantum-api-go/utils"
+import utils "github.com/xefino/protobuf-gen-go/utils"
 
 // FrequencyAlternates contains alternative values for the OHLC.v1.Frequency enum
 var FrequencyAlternates = map[string]Frequency{

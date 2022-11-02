@@ -1,7 +1,7 @@
 package data
 
 import (
-	"github.com/xefino/quantum-api-go/utils"
+	"github.com/xefino/protobuf-gen-go/utils"
 )
 
 // ClientTypeAlternates contains alternative values for the DynamoDB.ClientType enum
