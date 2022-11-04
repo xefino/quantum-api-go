@@ -5,13 +5,21 @@ import utils "github.com/xefino/protobuf-gen-go/utils"
 // FrequencyAlternates contains alternative values for the OHLC.v1.Frequency enum
 var FrequencyAlternates = map[string]Frequency{
 	"":        Frequency_InvalidFrequency,
+	"s":       Frequency_Second,
 	"second":  Frequency_Second,
+	"m":       Frequency_Minute,
 	"minute":  Frequency_Minute,
+	"h":       Frequency_Hour,
 	"hour":    Frequency_Hour,
+	"d":       Frequency_Day,
 	"day":     Frequency_Day,
+	"w":       Frequency_Week,
 	"week":    Frequency_Week,
+	"mn":      Frequency_Month,
 	"month":   Frequency_Month,
+	"q":       Frequency_Quarter,
 	"quarter": Frequency_Quarter,
+	"y":       Frequency_Year,
 	"year":    Frequency_Year,
 }
 
