@@ -9,7 +9,6 @@ package v1
 import (
 	gopb "github.com/xefino/protobuf-gen-go/gopb"
 	data "github.com/xefino/quantum-api-go/data"
-	snowflake "github.com/xefino/quantum-proto-internal/snowflake"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -31,7 +30,7 @@ type GetAggregatesRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The provider for which we want to retrieve data
-	ProviderId snowflake.Provider `protobuf:"varint,1,opt,name=provider_id,json=providerId,proto3,enum=protos.common.Provider" json:"provider_id"` 
+	ProviderId gopb.Provider `protobuf:"varint,1,opt,name=provider_id,json=providerId,proto3,enum=protos.common.Provider" json:"provider_id"` 
 	// The starting time from which to pull aggregated data as a timestamp
 	From *gopb.UnixTimestamp `protobuf:"bytes,2,opt,name=from,proto3" json:"from"` 
 	// The ending time from which to pull aggregated data as a timestamp
@@ -82,11 +81,11 @@ func (*GetAggregatesRequest) Descriptor() ([]byte, []int) {
 	return file_protos_frontend_ohlc_v1_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetAggregatesRequest) GetProviderId() snowflake.Provider {
+func (x *GetAggregatesRequest) GetProviderId() gopb.Provider {
 	if x != nil {
 		return x.ProviderId
 	}
-	return snowflake.Provider(0)
+	return gopb.Provider(0)
 }
 
 func (x *GetAggregatesRequest) GetFrom() *gopb.UnixTimestamp {
@@ -208,7 +207,7 @@ func file_protos_frontend_ohlc_v1_service_proto_rawDescGZIP() []byte {
 var file_protos_frontend_ohlc_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_protos_frontend_ohlc_v1_service_proto_goTypes = []interface{}{
 	(*GetAggregatesRequest)(nil), // 0: protos.frontend.ohlc.v1.GetAggregatesRequest
-	(snowflake.Provider)(0),      // 1: protos.common.Provider
+	(gopb.Provider)(0),           // 1: protos.common.Provider
 	(*gopb.UnixTimestamp)(nil),   // 2: protos.common.UnixTimestamp
 	(data.Frequency)(0),          // 3: protos.frontend.data.Frequency
 	(*data.Bar)(nil),             // 4: protos.frontend.data.Bar
