@@ -2,7 +2,6 @@ package data
 
 import (
 	"encoding/json"
-	"testing"
 
 	"github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb/types"
@@ -10,13 +9,6 @@ import (
 	. "github.com/onsi/gomega"
 	"gopkg.in/yaml.v3"
 )
-
-// Create a new test runner we'll use to test all the
-// modules in the data package
-func TestData(t *testing.T) {
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "Data Suite")
-}
 
 var _ = Describe("Data.ClientType Marshal/Unmarshal Tests", func() {
 
