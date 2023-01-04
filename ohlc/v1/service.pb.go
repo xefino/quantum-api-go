@@ -31,9 +31,12 @@ type GetAggregatesRequest struct {
 
 	// The provider for which we want to retrieve data
 	ProviderId gopb.Provider `protobuf:"varint,1,opt,name=provider_id,json=providerId,proto3,enum=protos.common.Provider" json:"provider_id"` 
-	// The starting time from which to pull aggregated data as a timestamp
+	// The starting time (inclusive) from which to pull aggregated data as a timestamp. This value will be snapped to the start of the time
+	// period dictated by the frequency parameter (start of the second, minute, hour, day, etc. indicated).
 	From *gopb.UnixTimestamp `protobuf:"bytes,2,opt,name=from,proto3" json:"from"` 
-	// The ending time from which to pull aggregated data as a timestamp
+	// The ending time (exclusive) until which to pull aggregated data as a timestamp. This value will be snapped to the end of the time
+	// period dictated by the frequency parameter (end of the second, minute, hour, day, etc. indicated) and then will be stretched so that
+	// a full bar can be returned, when taking into account the multiplier.
 	To *gopb.UnixTimestamp `protobuf:"bytes,3,opt,name=to,proto3" json:"to"` 
 	// The symbol of the asset for which data was being requested
 	Symbol string `protobuf:"bytes,4,opt,name=symbol,proto3" json:"symbol,omitempty"`
@@ -41,7 +44,7 @@ type GetAggregatesRequest struct {
 	Multiplier uint32 `protobuf:"varint,5,opt,name=multiplier,proto3" json:"multiplier,omitempty"`
 	// The frequency with which bars should be requested. This value is used together with the multiplier to describe the size of the bar
 	Frequency data.Frequency `protobuf:"varint,6,opt,name=frequency,proto3,enum=protos.frontend.data.Frequency" json:"frequency"` 
-	// Whether or not the aggregated data should be adjusted for splits. This is the functionality by default.  If it is disabled,
+	// Whether or not the aggregated data should be adjusted for splits. This is the functionality by default. If it is disabled,
 	// then the pricing and volume information will not be adjusted to account for splits.
 	UnadjustSplits bool `protobuf:"varint,7,opt,name=unadjust_splits,json=unadjustSplits,proto3" json:"unadjust_splits,omitempty"`
 }

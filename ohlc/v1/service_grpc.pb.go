@@ -27,7 +27,9 @@ type OhlcServiceClient interface {
 	// a not-found response if the symbol wasn't associated with any known value. instead, an empty list will be streamed to the client.
 	// A bad-request response will be returned if the multiplier is negative, the frequency is invalid or the start time (from) comes after
 	// the end time (to). If the time range contains part of a bar then request can contain a flag to either pull in that extra bar or
-	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary thn the associated flag should be set.
+	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary then the associated flag should be set.
+	// This data will, in the case of small bars, aggregate trades data directly. However, when data adjusted for splits is requested on a
+	// timeframes larger than one day, the data will be aggregated to a daily timeframe and then aggregated again. This is to account for splits.
 	Aggregates(ctx context.Context, in *GetAggregatesRequest, opts ...grpc.CallOption) (OhlcService_AggregatesClient, error)
 }
 
@@ -79,7 +81,9 @@ type OhlcServiceServer interface {
 	// a not-found response if the symbol wasn't associated with any known value. instead, an empty list will be streamed to the client.
 	// A bad-request response will be returned if the multiplier is negative, the frequency is invalid or the start time (from) comes after
 	// the end time (to). If the time range contains part of a bar then request can contain a flag to either pull in that extra bar or
-	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary thn the associated flag should be set.
+	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary then the associated flag should be set.
+	// This data will, in the case of small bars, aggregate trades data directly. However, when data adjusted for splits is requested on a
+	// timeframes larger than one day, the data will be aggregated to a daily timeframe and then aggregated again. This is to account for splits.
 	Aggregates(*GetAggregatesRequest, OhlcService_AggregatesServer) error
 	mustEmbedUnimplementedOhlcServiceServer()
 }
