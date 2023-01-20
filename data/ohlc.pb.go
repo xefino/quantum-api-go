@@ -105,13 +105,13 @@ type Bar struct {
 	unknownFields protoimpl.UnknownFields
 
 	Volume    int64               `protobuf:"varint,1,opt,name=volume,proto3" json:"volume,omitempty"`
-	Weighted  *gopb.Decimal       `protobuf:"bytes,2,opt,name=weighted,proto3" json:"weighted,omitempty"`
-	Open      *gopb.Decimal       `protobuf:"bytes,3,opt,name=open,proto3" json:"open,omitempty"`
-	Close     *gopb.Decimal       `protobuf:"bytes,4,opt,name=close,proto3" json:"close,omitempty"`
-	High      *gopb.Decimal       `protobuf:"bytes,5,opt,name=high,proto3" json:"high,omitempty"`
-	Low       *gopb.Decimal       `protobuf:"bytes,6,opt,name=low,proto3" json:"low,omitempty"`
+	Weighted  *gopb.Decimal       `protobuf:"bytes,2,opt,name=weighted,proto3" json:"weighted"` 
+	Open      *gopb.Decimal       `protobuf:"bytes,3,opt,name=open,proto3" json:"open"` 
+	Close     *gopb.Decimal       `protobuf:"bytes,4,opt,name=close,proto3" json:"close"` 
+	High      *gopb.Decimal       `protobuf:"bytes,5,opt,name=high,proto3" json:"high"` 
+	Low       *gopb.Decimal       `protobuf:"bytes,6,opt,name=low,proto3" json:"low"` 
 	Number    int32               `protobuf:"varint,7,opt,name=number,proto3" json:"number,omitempty"`
-	Timestamp *gopb.UnixTimestamp `protobuf:"bytes,8,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp *gopb.UnixTimestamp `protobuf:"bytes,8,opt,name=timestamp,proto3" json:"timestamp"` 
 }
 
 func (x *Bar) Reset() {

@@ -23,13 +23,16 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OhlcServiceClient interface {
-	// Retrieves aggregated trading data over the time period, for the symbol and time frequency provided. This endpoint will not return
-	// a not-found response if the symbol wasn't associated with any known value. instead, an empty list will be streamed to the client.
-	// A bad-request response will be returned if the multiplier is negative, the frequency is invalid or the start time (from) comes after
-	// the end time (to). If the time range contains part of a bar then request can contain a flag to either pull in that extra bar or
-	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary then the associated flag should be set.
-	// This data will, in the case of small bars, aggregate trades data directly. However, when data adjusted for splits is requested on a
-	// timeframes larger than one day, the data will be aggregated to a daily timeframe and then aggregated again. This is to account for splits.
+	// Retrieves aggregated trading data over the time period, for the symbol and time frequency provided.
+	// This endpoint will not return a not-found response if the symbol wasn't associated with any known
+	// value. instead, an empty list will be streamed to the client. A bad-request response will be
+	// returned if the multiplier is negative, the frequency is invalid or the start time (from) comes
+	// after the end time (to). If the time range contains part of a bar then request can contain a
+	// flag to either pull in that extra bar or ignore it. This endpoint will adjust for splits by default.
+	// If this functionality is not necessary then the associated flag should be set. This data will,
+	// in the case of small bars, aggregate trades data directly. However, when data adjusted for splits
+	// is requested on a timeframes larger than one day, the data will be aggregated to a daily timeframe
+	// and then aggregated again. This is to account for splits.
 	Aggregates(ctx context.Context, in *GetAggregatesRequest, opts ...grpc.CallOption) (OhlcService_AggregatesClient, error)
 }
 
@@ -77,13 +80,16 @@ func (x *ohlcServiceAggregatesClient) Recv() (*data.Bar, error) {
 // All implementations must embed UnimplementedOhlcServiceServer
 // for forward compatibility
 type OhlcServiceServer interface {
-	// Retrieves aggregated trading data over the time period, for the symbol and time frequency provided. This endpoint will not return
-	// a not-found response if the symbol wasn't associated with any known value. instead, an empty list will be streamed to the client.
-	// A bad-request response will be returned if the multiplier is negative, the frequency is invalid or the start time (from) comes after
-	// the end time (to). If the time range contains part of a bar then request can contain a flag to either pull in that extra bar or
-	// ignore it. This endpoint will adjust for splits by default. If this functionality is not necessary then the associated flag should be set.
-	// This data will, in the case of small bars, aggregate trades data directly. However, when data adjusted for splits is requested on a
-	// timeframes larger than one day, the data will be aggregated to a daily timeframe and then aggregated again. This is to account for splits.
+	// Retrieves aggregated trading data over the time period, for the symbol and time frequency provided.
+	// This endpoint will not return a not-found response if the symbol wasn't associated with any known
+	// value. instead, an empty list will be streamed to the client. A bad-request response will be
+	// returned if the multiplier is negative, the frequency is invalid or the start time (from) comes
+	// after the end time (to). If the time range contains part of a bar then request can contain a
+	// flag to either pull in that extra bar or ignore it. This endpoint will adjust for splits by default.
+	// If this functionality is not necessary then the associated flag should be set. This data will,
+	// in the case of small bars, aggregate trades data directly. However, when data adjusted for splits
+	// is requested on a timeframes larger than one day, the data will be aggregated to a daily timeframe
+	// and then aggregated again. This is to account for splits.
 	Aggregates(*GetAggregatesRequest, OhlcService_AggregatesServer) error
 	mustEmbedUnimplementedOhlcServiceServer()
 }
