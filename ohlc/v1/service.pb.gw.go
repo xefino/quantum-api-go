@@ -15,7 +15,7 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
-	"github.com/xefino/quantum-api-go/data"
+	data_0 "github.com/xefino/quantum-api-go/data"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
@@ -77,12 +77,12 @@ func request_OhlcService_Aggregates_0(ctx context.Context, marshaler runtime.Mar
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "frequency")
 	}
 
-	e, err = runtime.Enum(val, data.Frequency_value)
+	e, err = runtime.Enum(val, data_0.Frequency_value)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "frequency", err)
 	}
 
-	protoReq.Frequency = data.Frequency(e)
+	protoReq.Frequency = data_0.Frequency(e)
 
 	stream, err := client.Aggregates(ctx, &protoReq)
 	if err != nil {
