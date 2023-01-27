@@ -165,6 +165,86 @@ func (x *Quote) GetTrfTimestamp() *gopb.UnixTimestamp {
 	return nil
 }
 
+// Describes a single price ladder entry for a given asset
+type PriceLadderEntry struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Price     *gopb.Decimal `protobuf:"bytes,1,opt,name=price,proto3" json:"price,omitempty"`
+	AskTrades int64         `protobuf:"varint,2,opt,name=ask_trades,json=askTrades,proto3" json:"ask_trades,omitempty"`
+	AskVolume int64         `protobuf:"varint,3,opt,name=ask_volume,json=askVolume,proto3" json:"ask_volume,omitempty"`
+	BidTrades int64         `protobuf:"varint,4,opt,name=bid_trades,json=bidTrades,proto3" json:"bid_trades,omitempty"`
+	BidVolume int64         `protobuf:"varint,5,opt,name=bid_volume,json=bidVolume,proto3" json:"bid_volume,omitempty"`
+}
+
+func (x *PriceLadderEntry) Reset() {
+	*x = PriceLadderEntry{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_frontend_data_quote_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PriceLadderEntry) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PriceLadderEntry) ProtoMessage() {}
+
+func (x *PriceLadderEntry) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_frontend_data_quote_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PriceLadderEntry.ProtoReflect.Descriptor instead.
+func (*PriceLadderEntry) Descriptor() ([]byte, []int) {
+	return file_protos_frontend_data_quote_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *PriceLadderEntry) GetPrice() *gopb.Decimal {
+	if x != nil {
+		return x.Price
+	}
+	return nil
+}
+
+func (x *PriceLadderEntry) GetAskTrades() int64 {
+	if x != nil {
+		return x.AskTrades
+	}
+	return 0
+}
+
+func (x *PriceLadderEntry) GetAskVolume() int64 {
+	if x != nil {
+		return x.AskVolume
+	}
+	return 0
+}
+
+func (x *PriceLadderEntry) GetBidTrades() int64 {
+	if x != nil {
+		return x.BidTrades
+	}
+	return 0
+}
+
+func (x *PriceLadderEntry) GetBidVolume() int64 {
+	if x != nil {
+		return x.BidVolume
+	}
+	return 0
+}
+
 var File_protos_frontend_data_quote_proto protoreflect.FileDescriptor
 
 var file_protos_frontend_data_quote_proto_rawDesc = []byte{
@@ -221,10 +301,21 @@ var file_protos_frontend_data_quote_proto_rawDesc = []byte{
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x63, 0x6f,
 	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x55, 0x6e, 0x69, 0x78, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61,
 	0x6d, 0x70, 0x52, 0x0c, 0x74, 0x72, 0x66, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
-	0x42, 0x27, 0x5a, 0x25, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x78,
-	0x65, 0x66, 0x69, 0x6e, 0x6f, 0x2f, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x75, 0x6d, 0x2d, 0x61, 0x70,
-	0x69, 0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x61, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x22, 0xbc, 0x01, 0x0a, 0x10, 0x50, 0x72, 0x69, 0x63, 0x65, 0x4c, 0x61, 0x64, 0x64, 0x65, 0x72,
+	0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x2c, 0x0a, 0x05, 0x70, 0x72, 0x69, 0x63, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x44, 0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c, 0x52, 0x05, 0x70, 0x72,
+	0x69, 0x63, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x61, 0x73, 0x6b, 0x5f, 0x74, 0x72, 0x61, 0x64, 0x65,
+	0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x61, 0x73, 0x6b, 0x54, 0x72, 0x61, 0x64,
+	0x65, 0x73, 0x12, 0x1d, 0x0a, 0x0a, 0x61, 0x73, 0x6b, 0x5f, 0x76, 0x6f, 0x6c, 0x75, 0x6d, 0x65,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x61, 0x73, 0x6b, 0x56, 0x6f, 0x6c, 0x75, 0x6d,
+	0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x62, 0x69, 0x64, 0x5f, 0x74, 0x72, 0x61, 0x64, 0x65, 0x73, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x62, 0x69, 0x64, 0x54, 0x72, 0x61, 0x64, 0x65, 0x73,
+	0x12, 0x1d, 0x0a, 0x0a, 0x62, 0x69, 0x64, 0x5f, 0x76, 0x6f, 0x6c, 0x75, 0x6d, 0x65, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x62, 0x69, 0x64, 0x56, 0x6f, 0x6c, 0x75, 0x6d, 0x65, 0x42,
+	0x27, 0x5a, 0x25, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x78, 0x65,
+	0x66, 0x69, 0x6e, 0x6f, 0x2f, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x75, 0x6d, 0x2d, 0x61, 0x70, 0x69,
+	0x2d, 0x67, 0x6f, 0x2f, 0x64, 0x61, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -239,29 +330,31 @@ func file_protos_frontend_data_quote_proto_rawDescGZIP() []byte {
 	return file_protos_frontend_data_quote_proto_rawDescData
 }
 
-var file_protos_frontend_data_quote_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_protos_frontend_data_quote_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_protos_frontend_data_quote_proto_goTypes = []interface{}{
 	(*Quote)(nil),                        // 0: protos.frontend.data.Quote
-	(*gopb.Decimal)(nil),                 // 1: protos.common.Decimal
-	(gopb.Financial_Common_Tape)(0),      // 2: protos.common.Financial.Common.Tape
-	(gopb.Financial_Quotes_Condition)(0), // 3: protos.common.Financial.Quotes.Condition
-	(gopb.Financial_Quotes_Indicator)(0), // 4: protos.common.Financial.Quotes.Indicator
-	(*gopb.UnixTimestamp)(nil),           // 5: protos.common.UnixTimestamp
+	(*PriceLadderEntry)(nil),             // 1: protos.frontend.data.PriceLadderEntry
+	(*gopb.Decimal)(nil),                 // 2: protos.common.Decimal
+	(gopb.Financial_Common_Tape)(0),      // 3: protos.common.Financial.Common.Tape
+	(gopb.Financial_Quotes_Condition)(0), // 4: protos.common.Financial.Quotes.Condition
+	(gopb.Financial_Quotes_Indicator)(0), // 5: protos.common.Financial.Quotes.Indicator
+	(*gopb.UnixTimestamp)(nil),           // 6: protos.common.UnixTimestamp
 }
 var file_protos_frontend_data_quote_proto_depIdxs = []int32{
-	1, // 0: protos.frontend.data.Quote.ask_price:type_name -> protos.common.Decimal
-	1, // 1: protos.frontend.data.Quote.bid_price:type_name -> protos.common.Decimal
-	2, // 2: protos.frontend.data.Quote.tape:type_name -> protos.common.Financial.Common.Tape
-	3, // 3: protos.frontend.data.Quote.conditions:type_name -> protos.common.Financial.Quotes.Condition
-	4, // 4: protos.frontend.data.Quote.indicators:type_name -> protos.common.Financial.Quotes.Indicator
-	5, // 5: protos.frontend.data.Quote.participant_timestamp:type_name -> protos.common.UnixTimestamp
-	5, // 6: protos.frontend.data.Quote.sip_timestamp:type_name -> protos.common.UnixTimestamp
-	5, // 7: protos.frontend.data.Quote.trf_timestamp:type_name -> protos.common.UnixTimestamp
-	8, // [8:8] is the sub-list for method output_type
-	8, // [8:8] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	2, // 0: protos.frontend.data.Quote.ask_price:type_name -> protos.common.Decimal
+	2, // 1: protos.frontend.data.Quote.bid_price:type_name -> protos.common.Decimal
+	3, // 2: protos.frontend.data.Quote.tape:type_name -> protos.common.Financial.Common.Tape
+	4, // 3: protos.frontend.data.Quote.conditions:type_name -> protos.common.Financial.Quotes.Condition
+	5, // 4: protos.frontend.data.Quote.indicators:type_name -> protos.common.Financial.Quotes.Indicator
+	6, // 5: protos.frontend.data.Quote.participant_timestamp:type_name -> protos.common.UnixTimestamp
+	6, // 6: protos.frontend.data.Quote.sip_timestamp:type_name -> protos.common.UnixTimestamp
+	6, // 7: protos.frontend.data.Quote.trf_timestamp:type_name -> protos.common.UnixTimestamp
+	2, // 8: protos.frontend.data.PriceLadderEntry.price:type_name -> protos.common.Decimal
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	9, // [9:9] is the sub-list for extension extendee
+	0, // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_protos_frontend_data_quote_proto_init() }
@@ -282,6 +375,18 @@ func file_protos_frontend_data_quote_proto_init() {
 				return nil
 			}
 		}
+		file_protos_frontend_data_quote_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PriceLadderEntry); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -289,7 +394,7 @@ func file_protos_frontend_data_quote_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protos_frontend_data_quote_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
