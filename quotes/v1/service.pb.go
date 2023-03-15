@@ -111,11 +111,9 @@ type GetPriceLadderForAssetRequest struct {
 	ProviderId gopb.Provider `protobuf:"varint,1,opt,name=provider_id,json=providerId,proto3,enum=protos.common.Provider" json:"provider_id"` 
 	// The symbol of the asset for which price-ladder data should be retrieved
 	Symbol string `protobuf:"bytes,2,opt,name=symbol,proto3" json:"symbol,omitempty"`
-	// The starting time (inclusive) from which to request price-ladder data as a timestamp. This value will
-	// be ignored if it is nil
+	// The starting time (inclusive) from which to request price-ladder data as a timestamp
 	From *gopb.UnixTimestamp `protobuf:"bytes,3,opt,name=from,proto3" json:"from"` 
-	// The ending time (exclusive) until which to request price-ladder data as a timestamp. This value will
-	// be ignored if it is nil
+	// The ending time (exclusive) until which to request price-ladder data as a timestamp
 	To *gopb.UnixTimestamp `protobuf:"bytes,4,opt,name=to,proto3" json:"to"` 
 }
 
