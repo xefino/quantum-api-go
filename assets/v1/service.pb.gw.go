@@ -59,6 +59,10 @@ func request_AssetsService_QueryAssets_0(ctx context.Context, marshaler runtime.
 
 }
 
+var (
+	filter_AssetsService_GetAsset_0 = &utilities.DoubleArray{Encoding: map[string]int{"symbol": 0}, Base: []int{1, 2, 0, 0}, Check: []int{0, 1, 2, 2}}
+)
+
 func request_AssetsService_GetAsset_0(ctx context.Context, marshaler runtime.Marshaler, client AssetsServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetAssetRequest
 	var metadata runtime.ServerMetadata
@@ -78,6 +82,13 @@ func request_AssetsService_GetAsset_0(ctx context.Context, marshaler runtime.Mar
 	protoReq.Symbol, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "symbol", err)
+	}
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AssetsService_GetAsset_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
 	msg, err := client.GetAsset(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -104,6 +115,13 @@ func local_request_AssetsService_GetAsset_0(ctx context.Context, marshaler runti
 	protoReq.Symbol, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "symbol", err)
+	}
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_AssetsService_GetAsset_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
 	msg, err := server.GetAsset(ctx, &protoReq)
